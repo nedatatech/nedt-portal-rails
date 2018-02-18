@@ -1,0 +1,30 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  font-size: 12px;
+
+  @media (min-width: 800px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 16px;
+  }
+}
+
+#notice {
+    border-radius: 4px;
+    background: #f2dede;   
+    text-align: center;
+	border: 1px solid transparent;	
+    border-width: 1px;      
+    border-color: #ebccd1;
+}
+
+#notice p {
+  font-size: 0.85rem;
+  color: red;
+  opacity: 1;
+}

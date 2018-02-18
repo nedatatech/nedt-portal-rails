@@ -1,0 +1,70 @@
+employees
+ first_name:string
+ last_name:string
+ username:string
+ password_hash:string
+ email:string
+ phone:string
+ street:string
+ city:string
+ state:string
+ zip:string
+ invoices:references
+ owed:integer
+ payments:references
+
+customers
+ first_name:string
+ last_name:string
+ email:string
+ phone:string
+ street:string
+ city:string
+ state:string
+ zip:string
+ invoices:references
+
+pending_jobs
+ invoice:references
+ job_date:date
+ customer:references
+
+in_progress_jobs
+ invoice:references
+
+invoices
+ invoice_num:string
+ techs_on_job:references
+ customer:references
+ start_job:datetime
+ end_job:datetime
+ hours:integer
+ parts_used:references
+ status:string
+
+expenses
+ due:date
+ pay_to:references
+ pay_from:references
+ amount:integer
+ status:string
+
+payments
+ pay_date:date
+ paid_to:references
+ payment_type:string
+
+accounts
+ type:string
+ web_address:string
+ username:string
+ password:string
+ notes:reference
+
+ notes
+  title:string
+  description:text
+
+
+  
+  

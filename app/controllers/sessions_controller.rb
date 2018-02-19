@@ -1,14 +1,15 @@
 class SessionsController < ApplicationController
   #before_action :authenticate_employee, :only => [:home, :profile, :setting]
   #before_action :save_login_state, :only => [:login, :login_attempt]
+  skip_before_action :authenticate_employee, only: [:create, :destroy]
 
   def create    
     employee = Employee.find_by(username: params[:username])
     if employee && employee.authenticate(params[:password])
     	#byebug
-      #session[:employee_id] = employee.id
+      #session[:employee_id] = employee.id      
       log_in employee
-      redirect_to employees_url, notice: 'Logged in!'
+      redirect_to root_url, notice: 'Logged in!'
     else
     	#byebug
       #flash.now.alert = 'Email or password is invalid'

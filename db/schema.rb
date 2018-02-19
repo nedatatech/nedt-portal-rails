@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218000253) do
+ActiveRecord::Schema.define(version: 20180219191006) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.integer "invoices_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoices_id"], name: "index_customers_on_invoices_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
@@ -33,6 +55,23 @@ ActiveRecord::Schema.define(version: 20180218000253) do
     t.index ["payments_id"], name: "index_employees_on_payments_id"
   end
 
+  create_table "expenses", force: :cascade do |t|
+    t.integer "owner_id"
+    t.boolean "recurring"
+    t.date "due"
+    t.integer "pay_to_id"
+    t.integer "pay_from_id"
+    t.decimal "amount"
+    t.integer "status_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_expenses_on_owner_id"
+    t.index ["pay_from_id"], name: "index_expenses_on_pay_from_id"
+    t.index ["pay_to_id"], name: "index_expenses_on_pay_to_id"
+    t.index ["status_id"], name: "index_expenses_on_status_id"
+  end
+
   create_table "invoices", force: :cascade do |t|
     t.string "invoice_num"
     t.integer "techs_on_job_id"
@@ -49,6 +88,20 @@ ActiveRecord::Schema.define(version: 20180218000253) do
     t.index ["techs_on_job_id"], name: "index_invoices_on_techs_on_job_id"
   end
 
+  create_table "jobs", force: :cascade do |t|
+    t.integer "invoice_id"
+    t.date "date"
+    t.integer "status_id"
+    t.datetime "scheduled_for"
+    t.datetime "completed_on"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_jobs_on_customer_id"
+    t.index ["invoice_id"], name: "index_jobs_on_invoice_id"
+    t.index ["status_id"], name: "index_jobs_on_status_id"
+  end
+
   create_table "payments", force: :cascade do |t|
     t.date "pay_date"
     t.integer "paid_to_id"
@@ -56,6 +109,22 @@ ActiveRecord::Schema.define(version: 20180218000253) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["paid_to_id"], name: "index_payments_on_paid_to_id"
+  end
+
+  create_table "settings_data", force: :cascade do |t|
+    t.string "name"
+    t.integer "type_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_id"], name: "index_settings_data_on_type_id"
+  end
+
+  create_table "status_data", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

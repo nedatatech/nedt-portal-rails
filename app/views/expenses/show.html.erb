@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @expense.owner %>
+</p>
+
+<p>
+  <strong>Recurring:</strong>
+  <%= @expense.recurring %>
+</p>
+
+<p>
+  <strong>Due:</strong>
+  <%= @expense.due %>
+</p>
+
+<p>
+  <strong>Pay to:</strong>
+  <%= @expense.pay_to %>
+</p>
+
+<p>
+  <strong>Pay from:</strong>
+  <%= @expense.pay_from %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @expense.amount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @expense.status %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @expense.description %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

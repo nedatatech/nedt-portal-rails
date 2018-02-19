@@ -1,4 +1,4 @@
-employees
+Employee
  first_name:string
  last_name:string
  username:string
@@ -8,31 +8,56 @@ employees
  street:string
  city:string
  state:string
- zip:string
+ zip:references
  invoices:references
  owed:integer
  payments:references
 
-customers
+zip
+ code:text
+ area:code
+
+Customer
  first_name:string
  last_name:string
  email:string
- phone:string
+ * phone:references *
  street:string
  city:string
  state:string
  zip:string
- invoices:references
+ * invoices:references *
 
-pending_jobs
- invoice:references
- job_date:date
+Defaults
+ owner_id:references
+ phone_id:references
+ email_id:references
+
+
+Phone
+ owner_id:references
+ area_code:string
+ office_code:string
+ station_code:string
+ notes:text
+
+Email
+ owner_id:references
+ maibox:text
+ domain:text
+
+Job
+ invoice:references 
+ date:date
+ status:references
+ scheduled_for:datetime
+ completed_on:datetime
  customer:references
 
-in_progress_jobs
+In_progress_job
  invoice:references
 
-invoices
+Invoice
  invoice_num:string
  techs_on_job:references
  customer:references
@@ -42,29 +67,87 @@ invoices
  parts_used:references
  status:string
 
-expenses
+Expense
+ owner:references
+ recurring:boolean
  due:date
  pay_to:references
  pay_from:references
- amount:integer
- status:string
+ amount:decimal
+ status:references
+ description:text
 
-payments
+Status_datum
+ name:string
+ description:text
+
+Company
+ name:string
+ description:text
+
+Payment
  pay_date:date
- paid_to:references
- payment_type:string
+ paid_to_id:references
+ paid_from_id:references
+ payment_type:references
+ status:references
+ amount:decimal
+ reason:text
 
-accounts
+Payment_type
+ name:string
+ description:text
+
+Account
  type:string
  web_address:string
  username:string
  password:string
- notes:reference
+ notes:references
 
- notes
-  title:string
-  description:text
+Note
+ title:string
+ description:text
 
-
+Reminder
+ title:string
+ description:text
   
-  
+Follow_up
+ customer:references
+ date:datetime
+ description:text
+ notes:references
+
+Lead
+ source:string
+ type:string
+ job:references
+ cost:decimal
+
+Type
+ name:string
+ description:text
+
+Settings_data
+ name:string
+ type:references
+ description:text 
+
+Cancelation
+ reason:text
+ job:references
+ date:datetime
+
+Reschedule
+ reason:text
+ job:references
+ date:datetime
+
+History_item
+ date:datetime
+ action:string
+ description:text
+ result:text
+
+

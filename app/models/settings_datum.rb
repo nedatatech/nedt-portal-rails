@@ -1,0 +1,2 @@
+class SettingsDatum < ApplicationRecord
+end

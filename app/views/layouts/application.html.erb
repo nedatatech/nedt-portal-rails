@@ -7,8 +7,19 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <%= yield %>
   </body>
+
+    <footer">
+      <br><br>
+      <% unless controller_name == 'home' && action_name == 'index' %>  
+        <%= button_to "Home", root_path, form: {style: 'display:inline-block;'}, :method => :get %>
+      <% end %> 
+      <% if logged_in? %> 
+        <%= button_to "Settings", "/settings", form: {style: 'display:inline-block;'}, :method => :get %>  	
+        <%= button_to 'Logout', logout_path, form: {style: 'display:inline-block;'}, method: :delete %>
+      <% end %>
+    </footer>
+    <br>
 </html>

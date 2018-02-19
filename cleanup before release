@@ -1,1 +1,3 @@
 remove seed_dump from gem file
+
+rename jobs model, conflicts with jobs folder

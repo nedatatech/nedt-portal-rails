@@ -1,0 +1,42 @@
+<%= form_with(model: job, local: true) do |form| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :job_date, :order => [:month, :day, :year ] %>    
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.collection_select(:status_id, StatusDatum.all, :id, :name) %>    
+  </div>
+
+  <div class="field">
+    <%= form.label :scheduled_for %>
+    <%= form.datetime_select :scheduled_for, id: :job_scheduled_for, :order => [:month, :day, :year, :hour, :minute], :ampm => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completed_on %>
+    <%= form.datetime_select :completed_on, id: :job_completed_on, :order => [:month, :day, :year, :hour, :minute], :ampm => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.collection_select(:customer_id, Customer.all, :id, :fullname) %>    
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

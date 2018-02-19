@@ -1,0 +1,8 @@
+<h1>New England Data Tech - Portal</h1> 
+<h1>------------------------------</h1>
+<br>
+<% if logged_in? %>
+  <%= button_to "Statuses", status_data_url, :method => :get %>  
+  <%= button_to "Setting 2", employees_url, :method => :get %>
+  <%= button_to "Settings 3", settings_data_url, :method => :get %>
+<% end %>

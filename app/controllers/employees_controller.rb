@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
   #before_action :logged_in_employee, only: [:edit, :update, :destroy]
   #before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_employee, :only => [:new, :edit, :update, :destroy]
+  #before_action :authenticate_employee, except: [:index]#, :only => [:show, :new, :edit, :update, :destroy]
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
   #before_action :save_login_state, only: [:new, :create]
 
@@ -60,7 +60,6 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1.json
   def destroy
     #if logged_in?
-    byebug
       if @employee.id == session[:employee_id] 
         log_out
       end

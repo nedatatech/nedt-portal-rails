@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
+  before_action :authenticate_employee, except: [:home]
+  #before_action :set_employee#, only: [:show, :edit, :update, :destroy]
+
   include SessionsHelper
 
 #  helper_method :employee_signed_in?, :current_employee
@@ -23,14 +26,13 @@ class ApplicationController < ActionController::Base
 #  end
 
 def authenticate_employee
-  
   if session[:employee_id]
      # set current user object to @current_user object variable
     @current_employee = Employee.find session[:employee_id] 
     return true 
   else
     flash[:notice] = "Please log in."
-    redirect_to employees_url
+    redirect_to root_url
     return false
   end
 end

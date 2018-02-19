@@ -1,0 +1,2 @@
+class StatusDatum < ApplicationRecord
+end

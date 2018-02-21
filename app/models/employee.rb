@@ -2,6 +2,7 @@ class Employee < ApplicationRecord
   has_secure_password
   belongs_to :invoices, optional: true
   has_many :payments, as: :pay_to
+  has_many :payments, as: :pay_from
   #belongs_to :commentable, polymorphic: true
   before_save :encrypt_password
   after_save :clear_password

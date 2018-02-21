@@ -87,7 +87,7 @@ Company
 
 Payment 
  pay_to:references{polymorphic}
-
+ pay_from:references{polymorphic}
 
 Payment
  pay_date:date

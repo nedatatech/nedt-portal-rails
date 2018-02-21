@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Payment To Froms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pay to</th>
+      <th>Pay from</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payment_to_froms.each do |payment_to_from| %>
+      <tr>
+        <td><%= payment_to_from.pay_to %></td>
+        <td><%= payment_to_from.pay_from %></td>
+        <td><%= link_to 'Show', payment_to_from %></td>
+        <td><%= link_to 'Edit', edit_payment_to_from_path(payment_to_from) %></td>
+        <td><%= link_to 'Destroy', payment_to_from, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Payment To From', new_payment_to_from_path %>

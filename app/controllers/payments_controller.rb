@@ -14,7 +14,10 @@ class PaymentsController < ApplicationController
 
   # GET /payments/new
   def new
-    @payment = Payment.new
+    @payment = Payment.new    
+    byebug
+    @payment_to_from_attributes = @payment.payment_to_froms.build
+
   end
 
   # GET /payments/1/edit
@@ -24,10 +27,18 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    @payment = Payment.new(payment_params)
-
+    #byebug
+    @payment = Payment.new(payment_params)            
+    #@payment_to_froms = Payment_to_froms.new
+    #@payment_to_froms =     
+    @payment.payment_to_froms.create!({:pay_to_id => params[:pay_to_id], :pay_to_type => "customer", :pay_from_id => params[:pay_from_id], :pay_from_type => "customer"})
+    #@payment_info = {pay_to_type: "customer", pay_to_id: payment_params[pay_to_id], pay_from_type: "customer", pay_from_id: payment_params[pay_from_id] }    
+ #   @payment_to_from = Payment_to_from.new(payment_params)
+#byebug
     respond_to do |format|
-      if @payment.save
+      if @payment.save          
+        byebug       
+
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
@@ -69,6 +80,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:pay_date, :paid_to_id, :payment_type)
+      params.require(:payment).permit(:pay_date, :type_id, :status_id, :amount, :reason)
     end
 end

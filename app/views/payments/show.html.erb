@@ -6,13 +6,28 @@
 </p>
 
 <p>
-  <strong>Paid to:</strong>
-  <%= @payment.paid_to %>
+  <strong>Payment to from:</strong>
+  <%= @payment.payment_to_from %>
 </p>
 
 <p>
-  <strong>Payment type:</strong>
-  <%= @payment.payment_type %>
+  <strong>Type:</strong>
+  <%= @payment.type %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @payment.status %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.amount %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @payment.reason %>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |

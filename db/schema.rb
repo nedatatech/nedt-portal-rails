@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219191006) do
+ActiveRecord::Schema.define(version: 20180220195916) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -102,13 +102,27 @@ ActiveRecord::Schema.define(version: 20180219191006) do
     t.index ["status_id"], name: "index_jobs_on_status_id"
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.date "pay_date"
-    t.integer "paid_to_id"
-    t.string "payment_type"
+  create_table "payment_companies", force: :cascade do |t|
+    t.integer "pay_to_id_id"
+    t.integer "pay_from_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paid_to_id"], name: "index_payments_on_paid_to_id"
+    t.index ["pay_from_id_id"], name: "index_payment_companies_on_pay_from_id_id"
+    t.index ["pay_to_id_id"], name: "index_payment_companies_on_pay_to_id_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.date "pay_date"
+    t.integer "payment_to_from_id"
+    t.integer "type_id"
+    t.integer "status_id"
+    t.decimal "amount"
+    t.text "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_to_from_id"], name: "index_payments_on_payment_to_from_id"
+    t.index ["status_id"], name: "index_payments_on_status_id"
+    t.index ["type_id"], name: "index_payments_on_type_id"
   end
 
   create_table "settings_data", force: :cascade do |t|
@@ -120,7 +134,14 @@ ActiveRecord::Schema.define(version: 20180219191006) do
     t.index ["type_id"], name: "index_settings_data_on_type_id"
   end
 
-  create_table "status_data", force: :cascade do |t|
+  create_table "statuses", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "types", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false

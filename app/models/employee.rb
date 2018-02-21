@@ -4,6 +4,8 @@ class Employee < ApplicationRecord
   belongs_to :payments, optional: true
   before_save :encrypt_password
   after_save :clear_password
+  has_many :payments, as: :pay_to
+  has_many :payments, as: :pay_from
 
 def encrypt_password
   #if password.present?

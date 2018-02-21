@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trans_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @trans_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_trans_type_path(@trans_type) %> |
+<%= link_to 'Back', trans_types_path %>

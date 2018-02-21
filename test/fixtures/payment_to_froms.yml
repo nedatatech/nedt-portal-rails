@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pay_to: one
+  pay_to_type: Pay to
+  pay_from: one
+  pay_from_type: Pay from
+
+two:
+  pay_to: two
+  pay_to_type: Pay to
+  pay_from: two
+  pay_from_type: Pay from

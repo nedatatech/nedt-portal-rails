@@ -33,7 +33,6 @@ Defaults
  phone_id:references
  email_id:references
 
-
 Phone
  owner_id:references
  area_code:string
@@ -77,7 +76,7 @@ Expense
  status:references
  description:text
 
-Status_datum
+Status
  name:string
  description:text
 
@@ -85,18 +84,26 @@ Company
  name:string
  description:text
 
+Payment_to_from
+ pay_to:references{polymorphic}
+ pay_from:references{polymorphic}
+
+Company
+ name:string
+ description:text
+
+Payment_company
+ receiving_company:references 
+ payment:references
+
 Payment
- pay_date:date
- paid_to_id:references
- paid_from_id:references
- payment_type:references
+ pay_date:date 
+ payment_company:references
+ company_id:
+ type:references
  status:references
  amount:decimal
  reason:text
-
-Payment_type
- name:string
- description:text
 
 Account
  type:string
@@ -150,4 +157,7 @@ History_item
  description:text
  result:text
 
+financial_acct
+ owner:references
+ balance:decimal
 

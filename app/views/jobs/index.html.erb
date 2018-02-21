@@ -20,7 +20,7 @@
       <tr>
         <td><%= job.invoice %></td>
         <td><%= job.date %></td>
-        <td><%= StatusDatum.find(job.status_id).name %></td>       
+        <td><%= Status.find(job.status_id).name %></td>       
         <td><%= job.scheduled_for %></td>
         <td><%= job.completed_on %></td>
         <td><%= Customer.find(job.customer_id).fullname %></td>

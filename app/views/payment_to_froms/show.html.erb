@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pay to:</strong>
+  <%= @payment_to_from.pay_to %>
+</p>
+
+<p>
+  <strong>Pay from:</strong>
+  <%= @payment_to_from.pay_from %>
+</p>
+
+<%= link_to 'Edit', edit_payment_to_from_path(@payment_to_from) %> |
+<%= link_to 'Back', payment_to_froms_path %>

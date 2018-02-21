@@ -17,13 +17,33 @@
   </div>
 
   <div class="field">
-    <%= form.label :paid_to_id %>
-    <%= form.text_field :paid_to_id, id: :payment_paid_to_id %>
+    <%= form.label :pay_to_id %>
+    <%= form.collection_select(:pay_to_id, Company.all, :id, :name) %>    
+  </div>
+
+    <div class="field">
+    <%= form.label :pay_from_id %>
+    <%= form.collection_select(:pay_from_id, Company.all, :id, :name) %>    
   </div>
 
   <div class="field">
-    <%= form.label :payment_type %>
-    <%= form.text_field :payment_type, id: :payment_payment_type %>
+    <%= form.label :type_id %>
+    <%= form.collection_select(:type_id, Type.all, :id, :name) %>    
+  </div>
+
+  <div class="field">
+    <%= form.label :status_id %>
+    <%= form.collection_select(:status_id, Status.all, :id, :name) %>    
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :payment_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_area :reason, id: :payment_reason %>
   </div>
 
   <div class="actions">

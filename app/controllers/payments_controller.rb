@@ -15,6 +15,9 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    #@payment.build    
+    #@payment
+    #@employees_attributes = @payment.employee.build
   end
 
   # GET /payments/1/edit
@@ -24,8 +27,9 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
+    byebug
     @payment = Payment.new(payment_params)
-
+    #@payment.build_employee(payment_params)
     respond_to do |format|
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
@@ -69,6 +73,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:pay_date, :paid_to_id, :payment_type)
+      params.require(:payment).permit(:pay_to_id, :pay_to_type)
     end
 end

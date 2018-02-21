@@ -1,18 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Pay date:</strong>
-  <%= @payment.pay_date %>
-</p>
-
-<p>
-  <strong>Paid to:</strong>
-  <%= @payment.paid_to %>
-</p>
-
-<p>
-  <strong>Payment type:</strong>
-  <%= @payment.payment_type %>
+  <strong>Pay to:</strong>
+  <% @employee = Employee.find_by_id(@payment.pay_to_id)%>
+  <%= @employee.first_name + " " + @employee.last_name%>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |

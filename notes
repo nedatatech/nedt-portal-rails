@@ -85,6 +85,10 @@ Company
  name:string
  description:text
 
+Payment 
+ pay_to:references{polymorphic}
+
+
 Payment
  pay_date:date
  paid_to_id:references

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payments
   resources :expenses
   resources :companies
   resources :status_data
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   resources :customers
   resources :jobs
   resources :invoices
-  resources :payments
   resources :employees
   get    '/login',        to: 'sessions#new'
   post   '/login',        to: 'sessions#create'

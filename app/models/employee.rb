@@ -1,7 +1,8 @@
 class Employee < ApplicationRecord
   has_secure_password
   belongs_to :invoices, optional: true
-  belongs_to :payments, optional: true
+  has_many :payments, as: :pay_to
+  #belongs_to :commentable, polymorphic: true
   before_save :encrypt_password
   after_save :clear_password
 
@@ -18,6 +19,12 @@ end
 
 def clear_password
   self.password = nil
+end
+
+private 
+
+def fullname
+    "#{first_name} #{last_name}"
 end
 
 end

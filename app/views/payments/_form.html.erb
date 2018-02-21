@@ -1,4 +1,4 @@
-<%= form_with(model: payment, local: true) do |form| %>
+<%= form_for(payment) do |form| %>
   <% if payment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
@@ -10,21 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
-    <%= form.label :pay_date %>
-    <%= form.date_select :pay_date, id: :payment_pay_date %>
-  </div>
+    <%= form.label :employee_id %>
+    <%= form.collection_select(:pay_to_id, Employee.all, :id, :fullname) %>
+    <%= form.hidden_field :pay_to_type, value: "employee" %> 
 
-  <div class="field">
-    <%= form.label :paid_to_id %>
-    <%= form.text_field :paid_to_id, id: :payment_paid_to_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :payment_type %>
-    <%= form.text_field :payment_type, id: :payment_payment_type %>
-  </div>
+</div>
 
   <div class="actions">
     <%= form.submit %>

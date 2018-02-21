@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219191006) do
+ActiveRecord::Schema.define(version: 20180221041900) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -103,12 +103,11 @@ ActiveRecord::Schema.define(version: 20180219191006) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.date "pay_date"
-    t.integer "paid_to_id"
-    t.string "payment_type"
+    t.string "pay_to_type"
+    t.integer "pay_to_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paid_to_id"], name: "index_payments_on_paid_to_id"
+    t.index ["pay_to_type", "pay_to_id"], name: "index_payments_on_pay_to_type_and_pay_to_id"
   end
 
   create_table "settings_data", force: :cascade do |t|

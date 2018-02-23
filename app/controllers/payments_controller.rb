@@ -12,6 +12,15 @@ class PaymentsController < ApplicationController
   def show
   end
 
+def select_to_from
+    render template: "payments/choose_type"
+end
+
+def store_to_from    
+    pay_to = params[:to_from][:pay_to_type]
+    pay_from = params[:to_from][:pay_from_type]
+    redirect_to :controller => 'payments', :action => 'new', :pay_to_type => pay_to, :pay_from_type => pay_from
+end
   # GET /payments/new
   def new
     @payment = Payment.new
@@ -27,7 +36,6 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    byebug
     @payment = Payment.new(payment_params)
     #@payment.build_employee(payment_params)
     respond_to do |format|
@@ -73,6 +81,10 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:pay_to_id, :pay_to_type, :pay_from_id, :pay_from_type)
+      params.require(:payment).permit(:pay_to_id, :pay_to_type, :pay_from_id, :pay_from_type, :date, :amount, :reason)
+    end
+
+    def to_from_params
+      params.require(:to_from).permit(:pay_to_type, :pay_from_type)
     end
 end

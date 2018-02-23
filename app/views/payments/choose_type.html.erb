@@ -1,0 +1,18 @@
+<%= form_for :to_from, :url => url_for(:controller => 'payments', :action => 'select_to_from') do |form| %>
+
+<div class="field">
+    <%= form.label :pay_to_type %>
+    <% @types = ["employee", "company"] %>
+    <%= form.select(:pay_to_type, @types) %>
+</div>
+
+<div class="field">
+    <%= form.label :pay_from_type %>
+    <% @types = ["employee", "company"] %>
+    <%= form.select(:pay_from_type, @types) %>
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :payments
+  #resources :payments
   resources :expenses
   resources :companies
   resources :status_data
@@ -10,11 +10,16 @@ Rails.application.routes.draw do
   resources :jobs
   resources :invoices
   resources :employees
-  get    '/login',        to: 'sessions#new'
-  post   '/login',        to: 'sessions#create'
-  delete '/logout',       to: 'sessions#destroy'
-  root                   :to => 'home#index'
-  get '/settings',        to: 'settings_data#settings'
+  get    '/login',                to: 'sessions#new'
+  post   '/login',                to: 'sessions#create'
+  delete '/logout',               to: 'sessions#destroy'
+  root                            :to => 'home#index'
+  get '/settings',                to: 'settings_data#settings'
+  get '/payments/select',          :to => 'payments#select_to_from'
+  post '/payments/select',          :to => 'payments#store_to_from'
+  resources :payments
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+

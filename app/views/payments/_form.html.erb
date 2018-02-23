@@ -10,17 +10,44 @@
       </ul>
     </div>
   <% end %>
-  
+
 <div class="field">
-    <%= form.label :pay_to_id %>
-    <%= form.collection_select(:pay_to_id, Employee.all, :id, :fullname) %>
-    <%= form.hidden_field :pay_to_type, value: "employee" %> 
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :payment_date, :order => [:month, :day, :year ] %> 
 </div>
 
 <div class="field">
-    <%= form.label :pay_from_id %>
-    <%= form.collection_select(:pay_from_id, Employee.all, :id, :fullname) %>
-    <%= form.hidden_field :pay_from_type, value: "employee" %> 
+    <% if params[:pay_to_type] == "company" %>
+      <%= form.label :pay_to_id %>
+      <%= form.collection_select(:pay_to_id, Company.all, :id, :name) %>
+      <%= form.hidden_field :pay_to_type, value: params[:pay_to_type] %> 
+    <% else %>
+      <%= form.label :pay_to_id %>
+      <%= form.collection_select(:pay_to_id, Employee.all, :id, :fullname) %>
+      <%= form.hidden_field :pay_to_type, value: params[:pay_to_type] %> 
+    <% end %>
+</div>
+
+<div class="field">
+    <% if params[:pay_from_type] == "company" %>
+      <%= form.label :pay_from_id %>
+      <%= form.collection_select(:pay_from_id, Company.all, :id, :name) %>
+      <%= form.hidden_field :pay_from_type, value: params[:pay_from_type] %> 
+    <% else %>
+      <%= form.label :pay_from_id %>
+      <%= form.collection_select(:pay_from_id, Employee.all, :id, :fullname) %>
+      <%= form.hidden_field :pay_from_type, value: params[:pay_from_type] %> 
+    <% end %>
+</div>
+
+<div class="field">
+   <%= form.label :amount %>
+   <%= form.text_field :amount, id: :payment_reason %>
+</div>
+
+<div class="field">
+   <%= form.label :reason %>
+   <%= form.text_field :reason, id: :payment_reason %>
 </div>
 
   <div class="actions">

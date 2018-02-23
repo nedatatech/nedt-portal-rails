@@ -86,8 +86,12 @@ Company
  description:text
 
 Payment 
+ date:date
  pay_to:references{polymorphic}
  pay_from:references{polymorphic}
+ amount:decimal
+ reason:text
+
 
 Payment
  pay_date:date

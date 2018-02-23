@@ -103,10 +103,13 @@ ActiveRecord::Schema.define(version: 20180221041900) do
   end
 
   create_table "payments", force: :cascade do |t|
+    t.date "date"
     t.string "pay_to_type"
     t.integer "pay_to_id"
     t.string "pay_from_type"
     t.integer "pay_from_id"
+    t.decimal "amount"
+    t.text "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pay_from_type", "pay_from_id"], name: "index_payments_on_pay_from_type_and_pay_from_id"

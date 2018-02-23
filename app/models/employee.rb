@@ -28,4 +28,10 @@ def fullname
     "#{first_name} #{last_name}"
 end
 
+def stuff
+  
+  
+  byebug
+end 
+
 end

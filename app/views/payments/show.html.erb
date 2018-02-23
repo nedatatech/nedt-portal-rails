@@ -1,15 +1,37 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Pay to:</strong>
-  <% @employee = Employee.find_by_id(@payment.pay_to_id)%>
-  <%= @employee.first_name + " " + @employee.last_name%>
+  <strong>Date:</strong>  
+  <%= @payment.date %>
+</p>
+<p>
+  <strong>Pay to:</strong>  
+  <% if @payment.pay_to_type == "company" %>
+    <% @company = Company.find_by_id(@payment.pay_to_id) %>
+    <%= @company.name %>
+  <% else %>
+    <% @employee = Employee.find_by_id(@payment.pay_to_id)%>
+    <%= @employee.first_name + " " + @employee.last_name%>
+  <% end %>
 </p>
 <p>
   <strong>Pay from:</strong>
-  <% @employee = Employee.find_by_id(@payment.pay_from_id)%>
-  <%= @employee.first_name + " " + @employee.last_name%>
+  <% if @payment.pay_from_type == "company" %>
+    <% @company = Company.find_by_id(@payment.pay_from_id) %>
+    <%= @company.name %>
+  <% else %>
+    <% @employee = Employee.find_by_id(@payment.pay_from_id)%>
+    <%= @employee.first_name + " " + @employee.last_name%>
+  <% end %>
 </p>
+<p>
+  <strong>Amount:</strong>  
+  <%= @payment.amount %>
+</p>
+<p>
+  <strong>Reason:</strong>  
+  <%= @payment.reason %>
+</p>
+
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', payments_path %>

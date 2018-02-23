@@ -17,9 +17,9 @@
     <% @leads.each do |lead| %>
       <tr>
         <td><%= lead.date %></td>
-        <td><%= lead.source %></td>
+        <td><%= lead.lead_source.name %></td>
         <td><%= lead.cost %></td>
-        <td><%= lead.lead_status %></td>
+        <td><%= lead.lead_status.name %></td>
         <td><%= link_to 'Show', lead %></td>
         <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
         <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>

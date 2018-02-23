@@ -7,7 +7,7 @@
 
 <p>
   <strong>Source:</strong>
-  <%= @lead.source %>
+  <%= @lead.lead_source.name %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>Lead status:</strong>
-  <%= @lead.lead_status %>
+  <%= @lead.lead_status.name %>
 </p>
 
 <%= link_to 'Edit', edit_lead_path(@lead) %> |

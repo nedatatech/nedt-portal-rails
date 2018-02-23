@@ -69,6 +69,6 @@ class LeadSourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lead_source_params
-      params.require(:lead_source).permit(:name_id, :description_id)
+      params.require(:lead_source).permit(:name, :description)
     end
 end

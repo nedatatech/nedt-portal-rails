@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :source_id %>
-    <%= form.text_field :source_id, id: :lead_source_id %>
+    <%= form.label :name%>
+    <%= form.collection_select(:lead_source_id, LeadSource.all, :id, :name) %>
   </div>
 
   <div class="field">
@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :lead_status_id %>
-    <%= form.text_field :lead_status_id, id: :lead_lead_status_id %>
+    <%= form.label :name%>
+    <%= form.collection_select(:lead_status_id, LeadStatus.all, :id, :name) %>
   </div>
 
   <div class="actions">

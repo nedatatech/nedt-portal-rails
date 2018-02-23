@@ -1,3 +1,15 @@
+LeadStatus.create!([
+  {name: "Quote Sent", description: "Quote sent to customer."},
+  {name: "Booked Job", description: "Customer accepted the quote and booked a job."}
+])
+Status.create!([
+  {name: "Completed", description: "Item has been completed."},
+  {name: "In Progress", description: "Item is currently in progress."}
+])
+TaskType.create!([
+  {name: "E-mail", description: "E-mail related task."},
+  {name: "Follow up", description: "Follow up on task."}
+])
 Company.create!([
   {name: "New England Data Tech", description: "The best company in the world!"},
   {name: "Namecheap", description: "Web Services."}
@@ -13,11 +25,10 @@ EmployeeTask.create!([
   {employee_id: 1, task_type_id: 1, description: "Do something.", status_id: 2},
   {employee_id: 2, task_type_id: 2, description: "Do the rest.", status_id: 2}
 ])
-Status.create!([
-  {name: "Completed", description: "Item has been completed."},
-  {name: "In Progress", description: "Item is currently in progress."}
+LeadSource.create!([
+  {name: "Home Advisor", description: "The criminals who give us free leads because they feel bad."}
 ])
-TaskType.create!([
-  {name: "E-mail", description: "E-mail related task."},
-  {name: "Follow up", description: "Follow up on task."}
+Lead.create!([
+  {date: "2018-02-23", lead_source_id: 2, cost: "1.67", lead_status_id: 1},
+  {date: "2018-02-23", lead_source_id: 1, cost: "23.99", lead_status_id: 1}
 ])

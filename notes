@@ -48,7 +48,7 @@ Email
 
 Lead
  date:date
- source:references
+ lead_source:references
  cost:decimal
  lead_status:references
 
@@ -57,8 +57,8 @@ Lead_status
  description:text 
  
 Lead_sources
- name:references
- description:references
+ name:string
+ description:text
 
 Job
  invoice:references 

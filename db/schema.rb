@@ -127,12 +127,10 @@ ActiveRecord::Schema.define(version: 20180223045438) do
   end
 
   create_table "lead_sources", force: :cascade do |t|
-    t.integer "name_id"
-    t.integer "description_id"
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["description_id"], name: "index_lead_sources_on_description_id"
-    t.index ["name_id"], name: "index_lead_sources_on_name_id"
   end
 
   create_table "lead_statuses", force: :cascade do |t|
@@ -144,13 +142,13 @@ ActiveRecord::Schema.define(version: 20180223045438) do
 
   create_table "leads", force: :cascade do |t|
     t.date "date"
-    t.integer "source_id"
+    t.integer "lead_source_id"
     t.decimal "cost"
     t.integer "lead_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["lead_source_id"], name: "index_leads_on_lead_source_id"
     t.index ["lead_status_id"], name: "index_leads_on_lead_status_id"
-    t.index ["source_id"], name: "index_leads_on_source_id"
   end
 
   create_table "owner_types", force: :cascade do |t|

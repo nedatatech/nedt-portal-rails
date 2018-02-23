@@ -46,6 +46,20 @@ Email
  maibox:text
  domain:text
 
+Lead
+ date:date
+ source:references
+ cost:decimal
+ lead_status:references
+
+Lead_status
+ name:string
+ description:text 
+ 
+Lead_sources
+ name:references
+ description:references
+
 Job
  invoice:references 
  date:date

@@ -1,0 +1,27 @@
+<%= form_with(model: lead_source, local: true) do |form| %>
+  <% if lead_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lead_source.errors.count, "error") %> prohibited this lead_source from being saved:</h2>
+
+      <ul>
+      <% lead_source.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name_id %>
+    <%= form.text_field :name_id, id: :lead_source_name_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description_id %>
+    <%= form.text_field :description_id, id: :lead_source_description_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

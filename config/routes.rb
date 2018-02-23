@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :leads
+  resources :lead_statuses
+  resources :lead_sources
   resources :employee_tasks
   resources :company_tasks
   resources :statuses

@@ -69,6 +69,6 @@ class EmployeeTasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_task_params
-      params.require(:employee_task).permit(:employee_id, :description, :status_id)
+      params.require(:employee_task).permit(:employee_id, :task_type_id, :description, :status_id)
     end
 end

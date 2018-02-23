@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lead_status.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lead_status.description %>
+</p>
+
+<%= link_to 'Edit', edit_lead_status_path(@lead_status) %> |
+<%= link_to 'Back', lead_statuses_path %>

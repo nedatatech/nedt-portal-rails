@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Owner</th>
+      <th>Task Type</th>
       <th>Description</th>
       <th>Status</th>
       <th colspan="3"></th>
@@ -16,6 +17,7 @@
     <% @employee_tasks.each do |employee_task| %>
       <tr>
         <td><%= employee_task.employee.fullname %></td>
+        <td><%= employee_task.task_type.name %></td>
         <td><%= employee_task.description %></td>
         <td><%= employee_task.status.name %></td>
         <td><%= link_to 'Show', employee_task %></td>

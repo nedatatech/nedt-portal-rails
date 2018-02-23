@@ -69,6 +69,6 @@ class CompanyTasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_task_params
-      params.require(:company_task).permit(:company_id, :description, :status_id)
+      params.require(:company_task).permit(:company_id, :task_type_id, :description, :status_id)
     end
 end

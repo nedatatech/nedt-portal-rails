@@ -2,9 +2,12 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @employee_task.employee.fullname %>
+  <%= @employee_task.employee.fullname%>
 </p>
-
+<p>
+<strong>Task Type:</strong>
+  <%= @employee_task.task_type.name%>
+</p>
 <p>
   <strong>Description:</strong>
   <%= @employee_task.description %>

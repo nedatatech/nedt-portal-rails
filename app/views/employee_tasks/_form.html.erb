@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :task_type_id%>
+    <%= form.collection_select(:task_type_id, TaskType.all, :id, :name) %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description, id: :employee_task_description %>
   </div>

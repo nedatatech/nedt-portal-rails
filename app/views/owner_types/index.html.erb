@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Owner Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owner_types.each do |owner_type| %>
+      <tr>
+        <td><%= owner_type.name %></td>
+        <td><%= owner_type.description %></td>
+        <td><%= link_to 'Show', owner_type %></td>
+        <td><%= link_to 'Edit', edit_owner_type_path(owner_type) %></td>
+        <td><%= link_to 'Destroy', owner_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Owner Type', new_owner_type_path %>

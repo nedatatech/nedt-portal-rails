@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221041900) do
+ActiveRecord::Schema.define(version: 20180223025941) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "company_tasks", force: :cascade do |t|
+    t.integer "company_id"
+    t.integer "task_type_id"
+    t.text "description"
+    t.integer "status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_tasks_on_company_id"
+    t.index ["status_id"], name: "index_company_tasks_on_status_id"
+    t.index ["task_type_id"], name: "index_company_tasks_on_task_type_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -32,6 +44,18 @@ ActiveRecord::Schema.define(version: 20180221041900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invoices_id"], name: "index_customers_on_invoices_id"
+  end
+
+  create_table "employee_tasks", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "task_type_id"
+    t.string "description"
+    t.integer "status_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_tasks_on_employee_id"
+    t.index ["status_id"], name: "index_employee_tasks_on_status_id"
+    t.index ["task_type_id"], name: "index_employee_tasks_on_task_type_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -102,6 +126,13 @@ ActiveRecord::Schema.define(version: 20180221041900) do
     t.index ["status_id"], name: "index_jobs_on_status_id"
   end
 
+  create_table "owner_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "payments", force: :cascade do |t|
     t.date "date"
     t.string "pay_to_type"
@@ -125,7 +156,14 @@ ActiveRecord::Schema.define(version: 20180221041900) do
     t.index ["type_id"], name: "index_settings_data_on_type_id"
   end
 
-  create_table "status_data", force: :cascade do |t|
+  create_table "statuses", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "task_types", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false

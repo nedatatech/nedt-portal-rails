@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  resources :employee_tasks
+  resources :company_tasks
+  resources :statuses
+  resources :owner_types
+  resources :task_types
   #resources :payments
   resources :expenses
   resources :companies
-  resources :status_data
   resources :settings_data
   get 'home/index'
 

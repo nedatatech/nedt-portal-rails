@@ -7,31 +7,22 @@ class Employee < ApplicationRecord
   before_save :encrypt_password
   after_save :clear_password
 
-def encrypt_password
-  #if password.present?
-  #  self.salt = BCrypt::Engine.generate_salt
-  #  self.encrypted_password= BCrypt::Engine.hash_secret(password, salt)
-  #end
-  if password.present?
-    self.salt = BCrypt::Engine.generate_salt
-    self.password_digest= BCrypt::Engine.hash_secret(password, salt)
+  def encrypt_password
+    #if password.present?
+    #  self.salt = BCrypt::Engine.generate_salt
+    #  self.encrypted_password= BCrypt::Engine.hash_secret(password, salt)
+    #end
+    if password.present?
+      self.salt = BCrypt::Engine.generate_salt
+      self.password_digest= BCrypt::Engine.hash_secret(password, salt)
+    end
   end
-end
 
-def clear_password
-  self.password = nil
-end
+  def clear_password
+    self.password = nil
+  end
 
-private 
-
-def fullname
+  def fullname
     "#{first_name} #{last_name}"
-end
-
-def stuff
-  
-  
-  byebug
-end 
-
+  end 
 end

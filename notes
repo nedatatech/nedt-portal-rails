@@ -77,9 +77,43 @@ Expense
  status:references
  description:text
 
-Status_datum
+Employee_task
+ owner:references
+ task_type:references
+ description:string 
+ status:references
+
+Company_task
+ owner:references
+ description:text
+ task_type:references
+ status:text
+
+to_from
+ to_type:string
+ from_type:string
+
+Owner_type
  name:string
  description:text
+
+Task_type
+ name:string
+ description:text
+
+Status
+ name:string
+ description:text
+
+transaction
+ type
+
+ poly_assoc
+
+  class_name:string
+  
+object_type
+ name:string
 
 Company
  name:string
@@ -92,6 +126,12 @@ Payment
  amount:decimal
  reason:text
 
+
+ (payment types)
+   customer --> datatech
+   datatech --> company
+   datatech --> employee
+   shawn -> tim
 
 Payment
  pay_date:date

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @employee_task.employee.fullname %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @employee_task.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @employee_task.status.name %>
+</p>
+
+<%= link_to 'Edit', edit_employee_task_path(@employee_task) %> |
+<%= link_to 'Back', employee_tasks_path %>

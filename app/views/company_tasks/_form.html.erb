@@ -1,0 +1,32 @@
+<%= form_with(model: company_task, local: true) do |form| %>
+  <% if company_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company_task.errors.count, "error") %> prohibited this company_task from being saved:</h2>
+
+      <ul>
+      <% company_task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.collection_select(:company_id, Company.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :company_task_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.collection_select(:status_id, Status.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

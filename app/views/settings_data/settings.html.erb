@@ -2,7 +2,7 @@
 <h1>------------------------------</h1>
 <br>
 <% if logged_in? %>
-  <%= button_to "Statuses", status_data_url, :method => :get %>  
-  <%= button_to "Setting 2", employees_url, :method => :get %>
-  <%= button_to "Settings 3", settings_data_url, :method => :get %>
+  <%= button_to "Statuses", statuses_url, :method => :get %>  
+  <%= button_to "Task Types", task_types_url, :method => :get %>
+  <%= button_to "Owner Types", owner_types_url, :method => :get %>
 <% end %>

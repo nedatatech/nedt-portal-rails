@@ -1,2 +1,0 @@
-class SettingsDatum < ApplicationRecord
-end

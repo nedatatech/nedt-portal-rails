@@ -1,2 +1,0 @@
-class StatusDatum < ApplicationRecord
-end

@@ -1,3 +1,47 @@
+
+Employee_transaction
+ employee:references
+ transaction:references
+
+Company_trans
+ company:references
+ transaction:references
+
+Customer_trans
+ customer:references
+ transaction:references
+
+Transaction
+ date:date
+ reason:string
+ amount:decimal
+ type:string
+ notes:text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Employee
  first_name:string
  last_name:string

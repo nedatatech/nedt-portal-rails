@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
-  resources :expenses
-  resources :companies
-  resources :status_data
-  resources :settings_data
   get 'home/index'
 
-  resources :customers
-  resources :jobs
-  resources :invoices
-  resources :payments
   resources :employees
   get    '/login',        to: 'sessions#new'
   post   '/login',        to: 'sessions#create'

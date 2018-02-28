@@ -6,15 +6,7 @@ class CreateEmployees < ActiveRecord::Migration[5.1]
       t.string :username
       t.string :password_digest
       t.string :salt
-      t.string :email
-      t.string :phone
-      t.string :street
-      t.string :city
-      t.string :state
-      t.string :zip
-      t.references :invoices, foreign_key: true
-      t.integer :owed
-      t.references :payments, foreign_key: true
+      t.references :email_addr, foreign_key: true
 
       t.timestamps
     end

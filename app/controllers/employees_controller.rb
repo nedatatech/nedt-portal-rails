@@ -3,6 +3,7 @@ class EmployeesController < ApplicationController
   #before_action :set_employee, only: [:show, :edit, :update, :destroy]
   #before_action :authenticate_employee, except: [:index]#, :only => [:show, :new, :edit, :update, :destroy]
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_employee, only: [:new, :create]
   #before_action :save_login_state, only: [:new, :create]
 
   # GET /employees
@@ -16,9 +17,16 @@ class EmployeesController < ApplicationController
   def show
   end
 
+  def browser_action
+
+  end 
   # GET /employees/new
   def new
-    @employee = Employee.new
+    @employee = Employee.new    
+    #@employee.email_addrs.new
+    #@employee.email_addr.build
+    #@email_addrs_attributes = @employee.email_addrs.build
+
   end
 
   # GET /employees/1/edit
@@ -27,15 +35,15 @@ class EmployeesController < ApplicationController
 
   # POST /employees
   # POST /employees.json
-  def create
-    @employee = Employee.new(employee_params)
-
+  def create    
+    @employee = Employee.new(employee_params)    
     respond_to do |format|
       if @employee.save
         log_in @employee
         format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
       else
+        byebug
         format.html { render :new }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
       end
@@ -81,6 +89,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:first_name, :last_name, :username, :password, :password_confirmation, :email, :phone, :street, :city, :state, :zip, :invoices_id, :owed, :payments_id)
+      params.require(:employee).permit(:first_name, :last_name, :username, :password, :password_confirmation, {email_addrs_attributes: [:id, :mailbox, :domain]})
     end
 end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inventory item:</strong>
+  <%= @truck_inventory.inventory_item %>
+</p>
+
+<p>
+  <strong>Item location:</strong>
+  <%= @truck_inventory.item_location %>
+</p>
+
+<%= link_to 'Edit', edit_truck_inventory_path(@truck_inventory) %> |
+<%= link_to 'Back', truck_inventories_path %>

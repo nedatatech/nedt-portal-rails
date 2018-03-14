@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219191006) do
+ActiveRecord::Schema.define(version: 20180314151650) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -72,6 +72,19 @@ ActiveRecord::Schema.define(version: 20180219191006) do
     t.index ["status_id"], name: "index_expenses_on_status_id"
   end
 
+  create_table "inventory_items", force: :cascade do |t|
+    t.integer "item_type_id"
+    t.string "name"
+    t.text "description"
+    t.decimal "cost"
+    t.decimal "retail"
+    t.decimal "markup"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_type_id"], name: "index_inventory_items_on_item_type_id"
+  end
+
   create_table "invoices", force: :cascade do |t|
     t.string "invoice_num"
     t.integer "techs_on_job_id"
@@ -86,6 +99,20 @@ ActiveRecord::Schema.define(version: 20180219191006) do
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["parts_used_id"], name: "index_invoices_on_parts_used_id"
     t.index ["techs_on_job_id"], name: "index_invoices_on_techs_on_job_id"
+  end
+
+  create_table "item_locations", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -125,6 +152,15 @@ ActiveRecord::Schema.define(version: 20180219191006) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "truck_inventories", force: :cascade do |t|
+    t.integer "inventory_item_id"
+    t.integer "item_location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inventory_item_id"], name: "index_truck_inventories_on_inventory_item_id"
+    t.index ["item_location_id"], name: "index_truck_inventories_on_item_location_id"
   end
 
 end

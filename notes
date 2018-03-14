@@ -1,3 +1,117 @@
+---------------------
+---------------------
+TRANSACTIONS
+---------------------
+Employee_pay_from
+ employee:references
+ transaction:references
+
+Employee_pay_to
+ employee:references
+ transaction:references
+
+Employee_transaction
+ employee:references
+ transaction:references
+ trans_type:references
+ 
+Company_trans
+ company:references
+ transaction:references
+ trans_type:references
+
+Customer_trans
+ customer:references
+ transaction:references
+ trans_type:references
+
+Transaction
+ date:date
+ reason:string
+ amount:decimal
+ notes:text
+ owner:references {polymorphic}
+ 
+Company
+ name:string
+ description:string
+
+Trans_type
+ name:string
+ description:text
+
+---------------------
+---------------------
+INVENTORY
+---------------------
+Truck_inventory
+ inventory_item:references
+ item_location:references
+
+Inventory_item
+ item_type:references
+ name:string
+ description:text
+ cost:decimal
+ retail:decimal
+ markup:decimal
+ price:decimal
+
+Item_location
+ name:string
+ description:text
+
+Item_type
+ name:string
+ description:text
+
+
+
+
+---------------------
+---------------------
+
+homeadvisor_leads
+ date:date
+ first_name:string
+ last_name:string
+ city:string
+ state:string
+ zip:string
+ category:string
+ cost:decimal
+ status:string
+ customer:references 
+
+thumbtack_leads
+ date:date
+ first_name:string
+ last_name:string
+ city:string
+ state:string
+ zip:string
+ category:string
+ cost:decimal
+ status:string
+ customer:references
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Employee
  first_name:string
  last_name:string

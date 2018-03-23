@@ -69,6 +69,6 @@ class ItemLocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_location_params
-      params.require(:item_location).permit(:name, :description)
+      params.require(:item_location).permit(:truck_id, :name, :description)
     end
 end

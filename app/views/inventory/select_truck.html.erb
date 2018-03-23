@@ -1,0 +1,23 @@
+<%= form_for @truck, :url => { :action => "select_location" }, :html => { :method => :get } do |form| %>
+  <% if @truck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@truck.errors.count, "error") %> prohibited this info from being saved:</h2>
+
+      <ul>
+      <% @truck.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :select_truck %>  
+    <%= form.collection_select(:id, Truck.all, :id, :name) %> 
+    <%= hidden_field_tag 'inventory_item_id',  params[:inventory_item_id]%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Select truck" %>
+  </div>
+<% end %>

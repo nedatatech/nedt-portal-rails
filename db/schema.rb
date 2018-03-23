@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314151650) do
+ActiveRecord::Schema.define(version: 20180321155348) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -73,15 +73,22 @@ ActiveRecord::Schema.define(version: 20180314151650) do
   end
 
   create_table "inventory_items", force: :cascade do |t|
+    t.integer "item_brand_id"
     t.integer "item_type_id"
-    t.string "name"
-    t.text "description"
+    t.integer "item_location_id"
+    t.integer "item_size_id"
+    t.integer "item_status_id"
+    t.text "item_notes"
     t.decimal "cost"
     t.decimal "retail"
     t.decimal "markup"
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_brand_id"], name: "index_inventory_items_on_item_brand_id"
+    t.index ["item_location_id"], name: "index_inventory_items_on_item_location_id"
+    t.index ["item_size_id"], name: "index_inventory_items_on_item_size_id"
+    t.index ["item_status_id"], name: "index_inventory_items_on_item_status_id"
     t.index ["item_type_id"], name: "index_inventory_items_on_item_type_id"
   end
 
@@ -101,7 +108,30 @@ ActiveRecord::Schema.define(version: 20180314151650) do
     t.index ["techs_on_job_id"], name: "index_invoices_on_techs_on_job_id"
   end
 
+  create_table "item_brands", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "item_locations", force: :cascade do |t|
+    t.integer "truck_id"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["truck_id"], name: "index_item_locations_on_truck_id"
+  end
+
+  create_table "item_sizes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_statuses", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
@@ -155,12 +185,19 @@ ActiveRecord::Schema.define(version: 20180314151650) do
   end
 
   create_table "truck_inventories", force: :cascade do |t|
+    t.integer "truck_id"
     t.integer "inventory_item_id"
-    t.integer "item_location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["inventory_item_id"], name: "index_truck_inventories_on_inventory_item_id"
-    t.index ["item_location_id"], name: "index_truck_inventories_on_item_location_id"
+    t.index ["truck_id"], name: "index_truck_inventories_on_truck_id"
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

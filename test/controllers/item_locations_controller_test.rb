@@ -17,7 +17,7 @@ class ItemLocationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create item_location" do
     assert_difference('ItemLocation.count') do
-      post item_locations_url, params: { item_location: { description: @item_location.description, name: @item_location.name } }
+      post item_locations_url, params: { item_location: { description: @item_location.description, name: @item_location.name, truck_id: @item_location.truck_id } }
     end
 
     assert_redirected_to item_location_url(ItemLocation.last)
@@ -34,7 +34,7 @@ class ItemLocationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update item_location" do
-    patch item_location_url(@item_location), params: { item_location: { description: @item_location.description, name: @item_location.name } }
+    patch item_location_url(@item_location), params: { item_location: { description: @item_location.description, name: @item_location.name, truck_id: @item_location.truck_id } }
     assert_redirected_to item_location_url(@item_location)
   end
 

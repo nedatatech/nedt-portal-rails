@@ -17,7 +17,7 @@ class TruckInventoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create truck_inventory" do
     assert_difference('TruckInventory.count') do
-      post truck_inventories_url, params: { truck_inventory: { inventory_item_id: @truck_inventory.inventory_item_id, item_location_id: @truck_inventory.item_location_id } }
+      post truck_inventories_url, params: { truck_inventory: { inventory_item_id: @truck_inventory.inventory_item_id, truck_id: @truck_inventory.truck_id } }
     end
 
     assert_redirected_to truck_inventory_url(TruckInventory.last)
@@ -34,7 +34,7 @@ class TruckInventoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update truck_inventory" do
-    patch truck_inventory_url(@truck_inventory), params: { truck_inventory: { inventory_item_id: @truck_inventory.inventory_item_id, item_location_id: @truck_inventory.item_location_id } }
+    patch truck_inventory_url(@truck_inventory), params: { truck_inventory: { inventory_item_id: @truck_inventory.inventory_item_id, truck_id: @truck_inventory.truck_id } }
     assert_redirected_to truck_inventory_url(@truck_inventory)
   end
 

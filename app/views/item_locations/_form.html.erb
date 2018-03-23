@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :truck_id %>  
+    <%= form.collection_select(:truck_id, Truck.all, :id, :name) %> 
+  </div>
+
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :item_location_name %>
   </div>

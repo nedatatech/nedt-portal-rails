@@ -1,6 +1,6 @@
-class CreateItemLocations < ActiveRecord::Migration[5.1]
+class CreateItemBrands < ActiveRecord::Migration[5.1]
   def change
-    create_table :item_locations do |t|
+    create_table :item_brands do |t|
       t.string :name
       t.text :description
 

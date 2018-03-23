@@ -5,9 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Item type</th>
-      <th>Name</th>
-      <th>Description</th>
+      <th>Item</th>
+      <th>Location</th>
+      <th>Item status</th>
+      <th>Item notes</th>
       <th>Cost</th>
       <th>Retail</th>
       <th>Markup</th>
@@ -19,9 +20,10 @@
   <tbody>
     <% @inventory_items.each do |inventory_item| %>
       <tr>
-        <td><%= inventory_item.item_type %></td>
         <td><%= inventory_item.name %></td>
-        <td><%= inventory_item.description %></td>
+        <td><%= inventory_item.location %></td>
+        <td><%= inventory_item.item_status.name %></td>        
+        <td><%= inventory_item.item_notes %></td>
         <td><%= inventory_item.cost %></td>
         <td><%= inventory_item.retail %></td>
         <td><%= inventory_item.markup %></td>

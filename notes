@@ -44,20 +44,32 @@ Trans_type
 ---------------------
 INVENTORY
 ---------------------
-Truck_inventory
- inventory_item:references
- item_location:references
-
-Inventory_item
- item_type:references
+Truck
  name:string
  description:text
+
+Truck_inventory
+ truck:references
+ inventory_item:references
+
+Inventory_item
+ item_brand:references
+ item_type:references
+ item_location:references
+ item_size:references
+ item_status:references
+ item_notes:text
  cost:decimal
  retail:decimal
  markup:decimal
  price:decimal
 
+Item_status
+ name:string
+ description:text
+
 Item_location
+ truck:references
  name:string
  description:text
 
@@ -65,9 +77,13 @@ Item_type
  name:string
  description:text
 
+Item_brand
+ name:string
+ description:text
 
-
-
+Item_size
+ name:string
+ description:text
 ---------------------
 ---------------------
 

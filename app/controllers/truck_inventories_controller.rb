@@ -21,12 +21,6 @@ class TruckInventoriesController < ApplicationController
   def edit
   end
 
-  # Get listing of inventory on truck
-  def status
-    @truck_inventories = TruckInventory.all
-    render template: "truck_inventories/status"
-  end 
-
   # POST /truck_inventories
   # POST /truck_inventories.json
   def create
@@ -75,6 +69,6 @@ class TruckInventoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_inventory_params
-      params.require(:truck_inventory).permit(:inventory_item_id, :item_location_id)
+      params.require(:truck_inventory).permit(:truck_id, :inventory_item_id)
     end
 end

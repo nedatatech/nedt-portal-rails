@@ -18,10 +18,5 @@
   <%= button_to "Jobs", jobs_url, :method => :get %>  
   <%= button_to "Employees", employees_url, :method => :get %>
   <%= button_to "Customers", customers_url, :method => :get %>
-  <%= button_to "Inventory Item", inventory_items_url, :method => :get %>
-  <%= button_to "Item Locations", item_locations_url, :method => :get %>
-  <%= button_to "Item Types", item_types_url, :method => :get %>
-  <%= button_to "Truck Inventory Item", truck_inventories_url, :method => :get %>
-  <%= button_to "Truck Inventory Status", "/truck_inventory_status", form: {style: 'display:inline-block;'}, :method => :get %>   
-
+  <%= button_to "Inventory", "/pages/inventory", :method => :get %>
 <% end %>

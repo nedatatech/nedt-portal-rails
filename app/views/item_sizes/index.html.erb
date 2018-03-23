@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Item Sizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_sizes.each do |item_size| %>
+      <tr>
+        <td><%= item_size.name %></td>
+        <td><%= item_size.description %></td>
+        <td><%= link_to 'Show', item_size %></td>
+        <td><%= link_to 'Edit', edit_item_size_path(item_size) %></td>
+        <td><%= link_to 'Destroy', item_size, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item Size', new_item_size_path %>

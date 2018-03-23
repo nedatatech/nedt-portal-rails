@@ -17,7 +17,7 @@ class InventoryItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create inventory_item" do
     assert_difference('InventoryItem.count') do
-      post inventory_items_url, params: { inventory_item: { cost: @inventory_item.cost, description: @inventory_item.description, item_type_id: @inventory_item.item_type_id, markup: @inventory_item.markup, name: @inventory_item.name, price: @inventory_item.price, retail: @inventory_item.retail } }
+      post inventory_items_url, params: { inventory_item: { cost: @inventory_item.cost, item_brand_id: @inventory_item.item_brand_id, item_location_id: @inventory_item.item_location_id, item_notes: @inventory_item.item_notes, item_size_id: @inventory_item.item_size_id, item_status_id: @inventory_item.item_status_id, item_type_id: @inventory_item.item_type_id, markup: @inventory_item.markup, price: @inventory_item.price, retail: @inventory_item.retail } }
     end
 
     assert_redirected_to inventory_item_url(InventoryItem.last)
@@ -34,7 +34,7 @@ class InventoryItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update inventory_item" do
-    patch inventory_item_url(@inventory_item), params: { inventory_item: { cost: @inventory_item.cost, description: @inventory_item.description, item_type_id: @inventory_item.item_type_id, markup: @inventory_item.markup, name: @inventory_item.name, price: @inventory_item.price, retail: @inventory_item.retail } }
+    patch inventory_item_url(@inventory_item), params: { inventory_item: { cost: @inventory_item.cost, item_brand_id: @inventory_item.item_brand_id, item_location_id: @inventory_item.item_location_id, item_notes: @inventory_item.item_notes, item_size_id: @inventory_item.item_size_id, item_status_id: @inventory_item.item_status_id, item_type_id: @inventory_item.item_type_id, markup: @inventory_item.markup, price: @inventory_item.price, retail: @inventory_item.retail } }
     assert_redirected_to inventory_item_url(@inventory_item)
   end
 

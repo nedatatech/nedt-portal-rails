@@ -29,6 +29,27 @@ def list_items
   render "/inventory/list_items"
 end
 
+def display_list
+  case params[:display]
+    when "All"
+      params[:title] = "All Items"
+      @inventory_items = InventoryItem.all
+      redirect_to inventory_items_url
+    when "Warehouse"
+      params[:title] = "Items in " + params[:display]
+      @inventory_items = InventoryItem.joins(:item_status).where(:item_statuses => {:name => "Received"})
+      render "/inventory/items_in_warehouse"
+    when "On Order"
+      params[:title] = "Items "+ params[:display]
+      @inventory_items = InventoryItem.joins(:item_status).where(:item_statuses => {:name => "On Order"})
+      render "/inventory/items_on_order"
+    when "Box Truck"
+      params[:title] = "Items on " + params[:display]
+      @inventory_items = InventoryItem.joins(:trucks).where(:trucks => {:name => params[:display]})
+      render "/inventory/items_on_truck"
+  end
+end
+
 def select_truck
   @truck = Truck.new
   #@inventory_items = InventoryItem.joins(:item_status).where(:item_statuses => {:name => "Received"})  

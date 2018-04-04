@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reserved Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job</th>
+      <th>Inventory item</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reserved_items.each do |reserved_item| %>
+      <tr>
+        <td><%= reserved_item.job %></td>
+        <td><%= reserved_item.inventory_item %></td>
+        <td><%= reserved_item.quantity %></td>
+        <td><%= link_to 'Show', reserved_item %></td>
+        <td><%= link_to 'Edit', edit_reserved_item_path(reserved_item) %></td>
+        <td><%= link_to 'Destroy', reserved_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reserved Item', new_reserved_item_path %>

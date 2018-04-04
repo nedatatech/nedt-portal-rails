@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inventory_item: one
+  invoice: one
+  price: MyString
+  money: MyString
+  notes: MyText
+
+two:
+  inventory_item: two
+  invoice: two
+  price: MyString
+  money: MyString
+  notes: MyText

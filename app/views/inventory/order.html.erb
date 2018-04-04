@@ -28,6 +28,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :quantity_id %>  
+    <%= form.number_field :quantity, :value => 1 %>
+  </div>
+
+  <div class="field">
     <%= form.label :item_notes %>
     <%= form.text_area :item_notes, id: :inventory_item_item_notes %>
   </div>

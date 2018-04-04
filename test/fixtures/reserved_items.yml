@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job: one
+  inventory_item: one
+  quantity: 1
+
+two:
+  job: two
+  inventory_item: two
+  quantity: 1

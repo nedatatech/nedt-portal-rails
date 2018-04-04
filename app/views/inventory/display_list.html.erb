@@ -1,0 +1,8 @@
+<% @inventory_list_options = ["All", "On Order", "Warehouse"] %>
+<% @truck = Truck.pluck(:name) %>
+<% @truck2 = Truck.where.not(name: "No Truck").pluck(:name) %>
+<% @test = @inventory_list_options + @truck2 %>
+<%= form_for :display, url: "display_list" do |form| %>  
+  <%= select_tag :display, options_for_select(@test) %>  
+  <%= form.submit  %>
+<% end  %>

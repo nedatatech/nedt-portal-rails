@@ -41,6 +41,18 @@ Trans_type
  description:text
 
 ---------------------
+INVOICING
+---------------------
+
+Invoice
+ customer:refrences
+ date:date
+
+Invoice_items
+ invoice:references
+ inventory_item:references
+ 
+---------------------
 ---------------------
 INVENTORY
 ---------------------
@@ -48,25 +60,61 @@ Truck
  name:string
  description:text
 
-Truck_inventory
- truck:references
- inventory_item:references
+Truck_inventory-
+ truck:references-
+ inventory_item:references-
+ stocked_item:references-
 
 Inventory_item
  item_brand:references
  item_type:references
- item_location:references
+ item_location:references-
  item_size:references
- item_status:references
+ item_status:references-
  item_notes:text
  cost:decimal
  retail:decimal
  markup:decimal
  price:decimal
 
-Item_status
+Order
+ date:date
+ vendor:references
+ status:references
+
+Vendor
  name:string
  description:text
+
+Order_item
+ order:references
+ inventory_item:references
+ quantity:integer
+
+Order_status
+ name:string
+ description:text
+
+Reserved_item
+ job:references
+ inventory_item:references
+ quantity:integer
+
+Sold_item
+ inventory_item:references
+ invoice:references
+ price: money
+ notes:text
+
+In_stock_item
+ inventory_item:references
+ item_location:references
+ item_quantity:integer
+ notes:text
+
+Item_status-
+ name:string-
+ description:text-
 
 Item_location
  truck:references

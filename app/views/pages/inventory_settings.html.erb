@@ -15,14 +15,14 @@
     <div class="actions"><%= submit_tag "Log In" %></div>
   <% end %>
 <% else %>
+  <%= button_to "Inventory Items", inventory_display_list_path, :method => :get %>
   <%= button_to "Item Locations", item_locations_url, :method => :get %>
   <%= button_to "Item Types", item_types_url, :method => :get %>
   <%= button_to "Item Brands", item_brands_url, :method => :get %>
   <%= button_to "Item Sizes", item_sizes_url, :method => :get %>
-  <%= button_to "Item Statuses", item_statuses_url, :method => :get %>
+  <%= button_to "Vendors", vendors_url, :method => :get %>
+  <%= button_to "Order Statuses", order_statuses_url, :method => :get %>
   <%= button_to "Trucks", trucks_url, :method => :get %>
-  <%= button_to "Truck Inventory Item", truck_inventories_url, :method => :get %>
-  <%= button_to "Truck Inventory Status", "/truck_inventory_status", form: {style: 'display:inline-block;'}, :method => :get %>
 <% end %>
 
 

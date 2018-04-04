@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @reserved_item.job %>
+</p>
+
+<p>
+  <strong>Inventory item:</strong>
+  <%= @reserved_item.inventory_item %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @reserved_item.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_reserved_item_path(@reserved_item) %> |
+<%= link_to 'Back', reserved_items_path %>

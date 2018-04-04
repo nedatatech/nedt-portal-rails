@@ -2,27 +2,17 @@
 
 <p>
   <strong>Item brand:</strong>
-  <%= @inventory_item.item_brand %>
+  <%= @inventory_item.item_brand.name %>
 </p>
 
 <p>
   <strong>Item type:</strong>
-  <%= @inventory_item.item_type %>
-</p>
-
-<p>
-  <strong>Item location:</strong>
-  <%= @inventory_item.item_location %>
+  <%= @inventory_item.item_type.name %>
 </p>
 
 <p>
   <strong>Item size:</strong>
-  <%= @inventory_item.item_size %>
-</p>
-
-<p>
-  <strong>Item status:</strong>
-  <%= @inventory_item.item_status %>
+  <%= @inventory_item.item_size.name %>
 </p>
 
 <p>

@@ -1,0 +1,32 @@
+<%= form_with(model: reserved_item, local: true) do |form| %>
+  <% if reserved_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reserved_item.errors.count, "error") %> prohibited this reserved_item from being saved:</h2>
+
+      <ul>
+      <% reserved_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :job_id %>
+    <%= form.text_field :job_id, id: :reserved_item_job_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inventory_item_id %>
+    <%= form.text_field :inventory_item_id, id: :reserved_item_inventory_item_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, id: :reserved_item_quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

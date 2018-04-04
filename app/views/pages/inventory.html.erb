@@ -15,13 +15,11 @@
     <div class="actions"><%= submit_tag "Log In" %></div>
   <% end %>
 <% else %>
+  <%= button_to "View stock", in_stock_items_path, :method => :get %>
+  <%= button_to "Orders", "/pages/orders", :method => :get %>  
+  <br>
   <%= button_to "Inventory Settings", "/pages/inventory_settings", :method => :get %>
-  <%= button_to "Order item", inventory_order_path, :method => :get %>
-  <%= button_to "Receive item", inventory_receive_path, :method => :get %>
-  <%= button_to "Move item to truck", inventory_list_items_path, :method => :get %>
-  <%= button_to "View Inventory", inventory_items_url, :method => :get %>
+  <% button_to "Receive item", inventory_receive_path, :method => :get %>
+  <% button_to "Move item to truck", inventory_list_items_path, :method => :get %>
 <% end %>
-
-
-
 

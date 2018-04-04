@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  resources :order_statuses
+  get 'cart/show'
+
+  resources :order_items
+  resources :in_stock_items
+  resources :sold_items
+  resources :reserved_items
+  resources :vendors
+  resources :orders, :except => [:show]
   resources :item_locations
-  resources :item_statuses
-  resources :truck_inventories
   resources :trucks
   resources :inventory_items
   resources :item_sizes
@@ -9,8 +16,6 @@ Rails.application.routes.draw do
   resources :item_types
   resources :expenses
   resources :companies
-  resources :status_data
-  resources :settings_data
   get 'home/index'
 
   resources :customers
@@ -28,6 +33,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
   get "/inventory/receive" => "inventory#receive"
   get "/inventory/order" => "inventory#order"
+  #get "/orders/build" => "orders#build"
   get "/inventory/select_location" => "inventory#select_location"
   get "/inventory/select_item" => "inventory#select_item"
   get "/inventory/list_items" => "inventory#list_items"
@@ -35,6 +41,12 @@ Rails.application.routes.draw do
   get "/inventory/select_truck" => "inventory#select_truck"
   post "/inventory_items/:id" => "inventory_items#receive"
   post "/inventory_items/move_to_truck/:id" => "inventory_items#move_to_truck"
-
+  get "/inventory/list" => "inventory#list"
+  post "/inventory/display_list" => "inventory#display_list"
+  get "/inventory/display_list" => "inventory#display_list"
+  post "/orders/:id" => "orders#receive"
+  get "/orders/pending" => "orders#pending"
+  get "/orders/completed" => "orders#completed"
+  get   "/orders/:id(.:format)" => "orders#show"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

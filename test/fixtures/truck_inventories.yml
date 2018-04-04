@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  truck: one
-  inventory_item: one
-
-two:
-  truck: two
-  inventory_item: two

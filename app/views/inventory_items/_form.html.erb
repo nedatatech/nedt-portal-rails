@@ -26,16 +26,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :item_status_id %>  
-    <%= form.collection_select(:item_status_id, ItemStatus.all, :id, :name) %>     
-  </div>
-
-  <div class="field">
-    <%= form.label :item_location_id %>  
-    <%= form.collection_select(:item_location_id, ItemLocation.all, :id, :name) %>     
-  </div>
-
-  <div class="field">
     <%= form.label :item_notes %>
     <%= form.text_area :item_notes, id: :inventory_item_item_notes %>
   </div>

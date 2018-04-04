@@ -40,6 +40,12 @@ class InventoryItemsController < ApplicationController
   # POST /inventory_items
   # POST /inventory_items.json
   def create    
+
+   ## @test = params[:inventory_item][:quantity].to_i
+   ## @test.times do 
+   ##   byebug
+   ## end 
+
     @inventory_item = InventoryItem.new(inventory_item_params)
 
     #On Order

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :invoice_numbers
+  resources :invoice_items
+  resources :invoices, :except => [:show]
   resources :order_statuses
   get 'cart/show'
 
@@ -20,7 +23,6 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :jobs
-  resources :invoices
   resources :payments
   resources :employees
   get    '/login',               to: 'sessions#new'
@@ -47,6 +49,9 @@ Rails.application.routes.draw do
   post "/orders/:id" => "orders#receive"
   get "/orders/pending" => "orders#pending"
   get "/orders/completed" => "orders#completed"
-  get   "/orders/:id(.:format)" => "orders#show"
+  get "/orders/:id(.:format)" => "orders#show"
+
+  get "/invoices/list" => "invoices#list"
+  get "/invoices/:id(.:format)" => "invoices#show"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -9,9 +9,8 @@
   </head>
   <body>
     <%= yield %>
-  </body>
 
-    <footer">
+    <footer>
       <br><br>
       <% unless controller_name == 'home' && action_name == 'index' %>  
         <%= button_to "Home", root_path, form: {style: 'display:inline-block;'}, :method => :get %>
@@ -22,4 +21,5 @@
       <% end %>
     </footer>
     <br>
+  </body>
 </html>

@@ -15,7 +15,8 @@
     <div class="actions"><%= submit_tag "Log In" %></div>
   <% end %>
 <% else %>
-  <%= button_to "Jobs", jobs_url, :method => :get %>  
+  <%= button_to "Jobs", jobs_url, :method => :get %>
+  <%= button_to "Invoices", invoices_url, :method => :get %>
   <%= button_to "Employees", employees_url, :method => :get %>
   <%= button_to "Customers", customers_url, :method => :get %>
   <%= button_to "Inventory", "/pages/inventory", :method => :get %>

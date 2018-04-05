@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
-    <%= form.label "Invoice #: " + invoice.number.to_s %>
-    <%= form.hidden_field :number, :value => invoice.number %>    
+    <%= form.label :number %>
+    <%= form.number_field :number, id: :invoice_number %>
   </div>
 
   <div class="field">
@@ -24,7 +25,3 @@
     <%= form.submit %>
   </div>
 <% end %>
-
-<div>
-  <%= render "invoice_items/list" %>
-</div>

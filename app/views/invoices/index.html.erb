@@ -1,41 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Invoices</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Invoice num</th>
-      <th>Techs on job</th>
-      <th>Customer</th>
-      <th>Start job</th>
-      <th>End job</th>
-      <th>Hours</th>
-      <th>Parts used</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @invoices.each do |invoice| %>
-      <tr>
-        <td><%= invoice.invoice_num %></td>
-        <td><%= invoice.techs_on_job %></td>
-        <td><%= invoice.customer %></td>
-        <td><%= invoice.start_job %></td>
-        <td><%= invoice.end_job %></td>
-        <td><%= invoice.hours %></td>
-        <td><%= invoice.parts_used %></td>
-        <td><%= invoice.status %></td>
-        <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1>New England Data Tech - Portal</h1>
+<h1>------------------------------</h1>
 <br>
-
-<%= link_to 'New Invoice', new_invoice_path %>
+<% if !logged_in? %>
+  <h1>Log In</h1>
+  <%= form_tag login_path do %>
+    <div class="field">
+      <%= label_tag :username %><br />
+      <%= text_field_tag :username, params[:username] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions"><%= submit_tag "Log In" %></div>
+  <% end %>
+<% else %>
+  <%= button_to "New invoice", new_invoice_path, :method => :get %>
+  <%= button_to "List invoices", invoices_list_path, :method => :get %>
+  <%= button_to "Edit invoices", new_invoice_path, :method => :get %>
+  <br>
+  <%= button_to "Invoice Settings", "/pages/inventory_settings", :method => :get %>
+<% end %>

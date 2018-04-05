@@ -45,12 +45,17 @@ INVOICING
 ---------------------
 
 Invoice
- customer:refrences
+ invoice_number:integer
  date:date
+
+Invoice_number
+ value:integer
+
 
 Invoice_items
  invoice:references
  inventory_item:references
+ quantity:integer
  
 ---------------------
 ---------------------

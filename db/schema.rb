@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330224308) do
+ActiveRecord::Schema.define(version: 20180405002203) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -99,20 +99,27 @@ ActiveRecord::Schema.define(version: 20180330224308) do
     t.index ["item_type_id"], name: "index_inventory_items_on_item_type_id"
   end
 
-  create_table "invoices", force: :cascade do |t|
-    t.string "invoice_num"
-    t.integer "techs_on_job_id"
-    t.integer "customer_id"
-    t.datetime "start_job"
-    t.datetime "end_job"
-    t.integer "hours"
-    t.integer "parts_used_id"
-    t.string "status"
+  create_table "invoice_items", force: :cascade do |t|
+    t.integer "invoice_id"
+    t.integer "inventory_item_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_invoices_on_customer_id"
-    t.index ["parts_used_id"], name: "index_invoices_on_parts_used_id"
-    t.index ["techs_on_job_id"], name: "index_invoices_on_techs_on_job_id"
+    t.index ["inventory_item_id"], name: "index_invoice_items_on_inventory_item_id"
+    t.index ["invoice_id"], name: "index_invoice_items_on_invoice_id"
+  end
+
+  create_table "invoice_numbers", force: :cascade do |t|
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.string "number"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "item_brands", force: :cascade do |t|

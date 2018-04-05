@@ -1,11 +1,14 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
-
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    #@invoices = Invoice.all
   end
+
+  def list
+    @invoices = Invoice.all
+  end 
 
   # GET /invoices/1
   # GET /invoices/1.json
@@ -69,6 +72,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:invoice_num, :techs_on_job_id, :customer_id, :start_job, :end_job, :hours, :parts_used_id, :status)
+      params.require(:invoice).permit(:number, :date)
     end
 end

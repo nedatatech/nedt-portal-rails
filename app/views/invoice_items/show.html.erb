@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @invoice_item.invoice %>
+</p>
+
+<p>
+  <strong>Inventory item:</strong>
+  <%= @invoice_item.inventory_item %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @invoice_item.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_item_path(@invoice_item) %> |
+<%= link_to 'Back', invoice_items_path %>

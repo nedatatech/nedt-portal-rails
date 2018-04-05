@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405002203) do
+ActiveRecord::Schema.define(version: 20180405152449) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -152,10 +152,17 @@ ActiveRecord::Schema.define(version: 20180405002203) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "job_statuses", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.integer "invoice_id"
     t.date "date"
-    t.integer "status_id"
+    t.integer "job_status_id"
     t.datetime "scheduled_for"
     t.datetime "completed_on"
     t.integer "customer_id"
@@ -163,7 +170,7 @@ ActiveRecord::Schema.define(version: 20180405002203) do
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_jobs_on_customer_id"
     t.index ["invoice_id"], name: "index_jobs_on_invoice_id"
-    t.index ["status_id"], name: "index_jobs_on_status_id"
+    t.index ["job_status_id"], name: "index_jobs_on_job_status_id"
   end
 
   create_table "order_items", force: :cascade do |t|

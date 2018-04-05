@@ -7,27 +7,27 @@
 
 <p>
   <strong>Date:</strong>
-  <%= convert_time(@job.date) %>
+  <%= @job.date %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= StatusDatum.find(@job.status_id).name %>
+  <strong>Job status:</strong>
+  <%= @job.job_status %>
 </p>
 
 <p>
   <strong>Scheduled for:</strong>
-  <%= convert_time(@job.scheduled_for) %>
+  <%= @job.scheduled_for %>
 </p>
 
 <p>
   <strong>Completed on:</strong>
-  <%= convert_time(@job.completed_on) %>
+  <%= @job.completed_on %>
 </p>
 
 <p>
-  <strong>Customer:</strong>  
-  <%= Customer.find(@job.customer_id).fullname %>
+  <strong>Customer:</strong>
+  <%= @job.customer %>
 </p>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |

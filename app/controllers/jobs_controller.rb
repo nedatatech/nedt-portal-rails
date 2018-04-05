@@ -4,8 +4,14 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    #@jobs = Job.all
+    render "/jobs/index"
   end
+
+  def list
+    @jobs = Job.all
+    render "/jobs/list"
+  end 
 
   # GET /jobs/1
   # GET /jobs/1.json
@@ -69,6 +75,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:invoice_id, :date, :status_id, :scheduled_for, :completed_on, :customer_id)
+      params.require(:job).permit(:invoice_id, :date, :job_status_id, :scheduled_for, :completed_on, :customer_id)
     end
 end

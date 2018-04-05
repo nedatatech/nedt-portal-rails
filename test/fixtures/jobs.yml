@@ -2,16 +2,16 @@
 
 one:
   invoice: one
-  date: 2018-02-18
-  status: MyString
-  scheduled_for: 2018-02-18 19:24:18
-  completed_on: 2018-02-18 19:24:18
+  date: 2018-04-05
+  job_status: one
+  scheduled_for: 2018-04-05 11:24:27
+  completed_on: 2018-04-05 11:24:27
   customer: one
 
 two:
   invoice: two
-  date: 2018-02-18
-  status: MyString
-  scheduled_for: 2018-02-18 19:24:18
-  completed_on: 2018-02-18 19:24:18
+  date: 2018-04-05
+  job_status: two
+  scheduled_for: 2018-04-05 11:24:27
+  completed_on: 2018-04-05 11:24:27
   customer: two

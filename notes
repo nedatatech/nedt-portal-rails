@@ -39,7 +39,24 @@ Company
 Trans_type
  name:string
  description:text
+---------------------
+---------------------
+JOBS
+---------------------
 
+Job
+ invoice:references 
+ date:date
+ job_status:references
+ scheduled_for:datetime
+ completed_on:datetime
+ customer:references
+
+Job_status
+ name:string
+ description:text
+
+---------------------
 ---------------------
 INVOICING
 ---------------------
@@ -116,10 +133,6 @@ In_stock_item
  item_location:references
  item_quantity:integer
  notes:text
-
-Item_status-
- name:string-
- description:text-
 
 Item_location
  truck:references
@@ -228,14 +241,6 @@ Email
  owner_id:references
  maibox:text
  domain:text
-
-Job
- invoice:references 
- date:date
- status:references
- scheduled_for:datetime
- completed_on:datetime
- customer:references
 
 In_progress_job
  invoice:references

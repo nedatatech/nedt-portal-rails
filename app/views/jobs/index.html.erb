@@ -1,37 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Jobs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Invoice</th>
-      <th>Date</th>
-      <th>Status</th>
-      <th>Scheduled for</th>
-      <th>Completed on</th>
-      <th>Customer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.invoice %></td>
-        <td><%= job.date %></td>
-        <td><%= StatusDatum.find(job.status_id).name %></td>       
-        <td><%= job.scheduled_for %></td>
-        <td><%= job.completed_on %></td>
-        <td><%= Customer.find(job.customer_id).fullname %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1>New England Data Tech - Portal</h1>
+<h1>------------------------------</h1>
 <br>
-
-<%= link_to 'New Job', new_job_path %>
+<% if !logged_in? %>
+  <h1>Log In</h1>
+  <%= form_tag login_path do %>
+    <div class="field">
+      <%= label_tag :username %><br />
+      <%= text_field_tag :username, params[:username] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions"><%= submit_tag "Log In" %></div>
+  <% end %>
+<% else %>
+  <%= button_to "New job", new_job_path, :method => :get %>
+  <%= button_to "List job", jobs_list_path, :method => :get %>
+  
+  <br>
+  <%= button_to "Invoice Settings", "/pages/inventory_settings", :method => :get %>
+<% end %>

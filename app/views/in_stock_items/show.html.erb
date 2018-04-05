@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inventory item:</strong>
+  <%= @in_stock_item.inventory_item.name %>
+</p>
+
+<p>
+  <strong>Item location:</strong>
+  <%= @in_stock_item.item_location.name %>
+</p>
+
+<p>
+  <strong>Item quantity:</strong>
+  <%= @in_stock_item.item_quantity %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @in_stock_item.notes %>
+</p>
+
+<%= link_to 'Edit', edit_in_stock_item_path(@in_stock_item) %> |
+<%= link_to 'Back', in_stock_items_path %>

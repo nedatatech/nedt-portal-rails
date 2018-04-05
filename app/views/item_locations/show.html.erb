@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Truck:</strong>
+  <%= @item_location.truck %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item_location.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item_location.description %>
+</p>
+
+<%= link_to 'Edit', edit_item_location_path(@item_location) %> |
+<%= link_to 'Back', item_locations_path %>

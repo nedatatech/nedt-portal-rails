@@ -9,17 +9,17 @@
   </head>
   <body>
     <%= yield %>
-  </body>
 
-    <footer">
+    <footer>
       <br><br>
       <% unless controller_name == 'home' && action_name == 'index' %>  
         <%= button_to "Home", root_path, form: {style: 'display:inline-block;'}, :method => :get %>
+        <%= link_to "Back", :back %>
       <% end %> 
-      <% if logged_in? %> 
-        <%= button_to "Settings", "/settings", form: {style: 'display:inline-block;'}, :method => :get %>  	
+      <% if logged_in? %>         
         <%= button_to 'Logout', logout_path, form: {style: 'display:inline-block;'}, method: :delete %>
       <% end %>
     </footer>
     <br>
+  </body>
 </html>

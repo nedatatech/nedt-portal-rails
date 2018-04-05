@@ -10,48 +10,21 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :invoice_num %>
-    <%= form.text_field :invoice_num, id: :invoice_invoice_num %>
+    <%= form.label "Invoice #: " + invoice.number.to_s %>
+    <%= form.hidden_field :number, :value => invoice.number %>    
   </div>
 
   <div class="field">
-    <%= form.label :techs_on_job_id %>
-    <%= form.text_field :techs_on_job_id, id: :invoice_techs_on_job_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id, id: :invoice_customer_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_job %>
-    <%= form.datetime_select :start_job, id: :invoice_start_job %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_job %>
-    <%= form.datetime_select :end_job, id: :invoice_end_job %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hours %>
-    <%= form.number_field :hours, id: :invoice_hours %>
-  </div>
-
-  <div class="field">
-    <%= form.label :parts_used_id %>
-    <%= form.text_field :parts_used_id, id: :invoice_parts_used_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, id: :invoice_status %>
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :invoice_date %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<div>
+  <%= render "invoice_items/list" %>
+</div>

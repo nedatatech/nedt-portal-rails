@@ -1,3 +1,186 @@
+---------------------
+---------------------
+TRANSACTIONS
+---------------------
+Employee_pay_from
+ employee:references
+ transaction:references
+
+Employee_pay_to
+ employee:references
+ transaction:references
+
+Employee_transaction
+ employee:references
+ transaction:references
+ trans_type:references
+ 
+Company_trans
+ company:references
+ transaction:references
+ trans_type:references
+
+Customer_trans
+ customer:references
+ transaction:references
+ trans_type:references
+
+Transaction
+ date:date
+ reason:string
+ amount:decimal
+ notes:text
+ owner:references {polymorphic}
+ 
+Company
+ name:string
+ description:string
+
+Trans_type
+ name:string
+ description:text
+
+---------------------
+INVOICING
+---------------------
+
+Invoice
+ invoice_number:integer
+ date:date
+
+Invoice_number
+ value:integer
+
+
+Invoice_items
+ invoice:references
+ inventory_item:references
+ quantity:integer
+ 
+---------------------
+---------------------
+INVENTORY
+---------------------
+Truck
+ name:string
+ description:text
+
+Truck_inventory-
+ truck:references-
+ inventory_item:references-
+ stocked_item:references-
+
+Inventory_item
+ item_brand:references
+ item_type:references
+ item_location:references-
+ item_size:references
+ item_status:references-
+ item_notes:text
+ cost:decimal
+ retail:decimal
+ markup:decimal
+ price:decimal
+
+Order
+ date:date
+ vendor:references
+ status:references
+
+Vendor
+ name:string
+ description:text
+
+Order_item
+ order:references
+ inventory_item:references
+ quantity:integer
+
+Order_status
+ name:string
+ description:text
+
+Reserved_item
+ job:references
+ inventory_item:references
+ quantity:integer
+
+Sold_item
+ inventory_item:references
+ invoice:references
+ price: money
+ notes:text
+
+In_stock_item
+ inventory_item:references
+ item_location:references
+ item_quantity:integer
+ notes:text
+
+Item_status-
+ name:string-
+ description:text-
+
+Item_location
+ truck:references
+ name:string
+ description:text
+
+Item_type
+ name:string
+ description:text
+
+Item_brand
+ name:string
+ description:text
+
+Item_size
+ name:string
+ description:text
+---------------------
+---------------------
+
+homeadvisor_leads
+ date:date
+ first_name:string
+ last_name:string
+ city:string
+ state:string
+ zip:string
+ category:string
+ cost:decimal
+ status:string
+ customer:references 
+
+thumbtack_leads
+ date:date
+ first_name:string
+ last_name:string
+ city:string
+ state:string
+ zip:string
+ category:string
+ cost:decimal
+ status:string
+ customer:references
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Employee
  first_name:string
  last_name:string

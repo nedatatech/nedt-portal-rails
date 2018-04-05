@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inventory_item: one
+  item_location: 
+  item_quantity: 1
+  notes: MyText
+
+two:
+  inventory_item: two
+  item_location: 
+  item_quantity: 1
+  notes: MyText

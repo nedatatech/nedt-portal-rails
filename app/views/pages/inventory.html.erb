@@ -1,0 +1,25 @@
+<h1>New England Data Tech - Portal</h1> 
+<h1>------------------------------</h1>
+<br>
+<% if !logged_in? %>
+  <h1>Log In</h1>
+  <%= form_tag login_path do %>
+    <div class="field">
+      <%= label_tag :username %><br />
+      <%= text_field_tag :username, params[:username] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions"><%= submit_tag "Log In" %></div>
+  <% end %>
+<% else %>
+  <%= button_to "View stock", in_stock_items_path, :method => :get %>
+  <%= button_to "Orders", "/pages/orders", :method => :get %>  
+  <br>
+  <%= button_to "Inventory Settings", "/pages/inventory_settings", :method => :get %>
+  <% button_to "Receive item", inventory_receive_path, :method => :get %>
+  <% button_to "Move item to truck", inventory_list_items_path, :method => :get %>
+<% end %>
+

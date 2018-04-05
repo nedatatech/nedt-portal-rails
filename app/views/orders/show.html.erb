@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<h1>Order Details</h1>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @order.date %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @order.vendor.name %>
+</p>
+
+<% @order.order_items.each do |order_item| %>
+  <%= order_item.inventory_item.name %>
+  ---- Qty:
+  <%= order_item.quantity %>
+  <br>
+<% end %>
+<br>
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,56 @@
+<%= form_with(model: inventory_item, local: true) do |form| %>
+  <% if inventory_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inventory_item.errors.count, "error") %> prohibited this inventory_item from being saved:</h2>
+
+      <ul>
+      <% inventory_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :item_brand_id %>  
+    <%= form.collection_select(:item_brand_id, ItemBrand.all, :id, :name) %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :item_type_id %>  
+    <%= form.collection_select(:item_type_id, ItemType.all, :id, :name) %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :item_size_id %>  
+    <%= form.collection_select(:item_size_id, ItemSize.all, :id, :name) %>     
+  </div>
+
+  <div class="field">
+    <%= form.label :item_notes %>
+    <%= form.text_area :item_notes, id: :inventory_item_item_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: :inventory_item_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retail %>
+    <%= form.text_field :retail, id: :inventory_item_retail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :markup %>
+    <%= form.text_field :markup, id: :inventory_item_markup %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :inventory_item_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

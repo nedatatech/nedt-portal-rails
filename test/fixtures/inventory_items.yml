@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_brand: one
+  item_type: one
+  item_location: one
+  item_size: one
+  item_status: one
+  item_notes: MyText
+  cost: 9.99
+  retail: 9.99
+  markup: 9.99
+  price: 9.99
+
+two:
+  item_brand: two
+  item_type: two
+  item_location: two
+  item_size: two
+  item_status: two
+  item_notes: MyText
+  cost: 9.99
+  retail: 9.99
+  markup: 9.99
+  price: 9.99

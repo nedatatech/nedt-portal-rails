@@ -1,43 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Invoice num:</strong>
-  <%= @invoice.invoice_num %>
+  <strong>Number:</strong>
+  <%= @invoice.number %>
 </p>
 
 <p>
-  <strong>Techs on job:</strong>
-  <%= @invoice.techs_on_job %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @invoice.customer %>
-</p>
-
-<p>
-  <strong>Start job:</strong>
-  <%= @invoice.start_job %>
-</p>
-
-<p>
-  <strong>End job:</strong>
-  <%= @invoice.end_job %>
-</p>
-
-<p>
-  <strong>Hours:</strong>
-  <%= @invoice.hours %>
-</p>
-
-<p>
-  <strong>Parts used:</strong>
-  <%= @invoice.parts_used %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @invoice.status %>
+  <strong>Date:</strong>
+  <%= @invoice.date %>
 </p>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |

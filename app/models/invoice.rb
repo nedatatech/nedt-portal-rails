@@ -1,5 +1,10 @@
 class Invoice < ApplicationRecord
-  belongs_to :techs_on_job
-  belongs_to :customer
-  belongs_to :parts_used
+	has_many :invoice_items
+	after_create :set_invoice_number
+
+    def set_invoice_number            
+      @invoice_number = InvoiceNumber.all.first
+      self.update_attribute(:number, "NEDT" + @invoice_number.value.to_s)      
+      @invoice_number.increment!(:value, by = 1)      
+    end
 end

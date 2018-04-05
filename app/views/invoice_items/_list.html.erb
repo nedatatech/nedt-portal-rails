@@ -1,0 +1,12 @@
+<% if @invoice.invoice_items.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+    <td><%= link_to 'Add items', new_invoice_item_path(:invoice_id => @invoice.id, :number => @invoice.number), method: :get %></td>
+  </p>
+<% else %>
+  <% @invoice.invoice_items.each do |invoice_item| %>  
+      <%= render 'invoice_items/list_row', product: invoice_item.inventory_item, invoice_item: invoice_item, show_total: true %>
+      <br>
+  <% end %>
+    <%= link_to 'Add items', new_invoice_item_path(:invoice_id => @invoice.id, :number => @invoice.number), method: :get %>
+<% end %>

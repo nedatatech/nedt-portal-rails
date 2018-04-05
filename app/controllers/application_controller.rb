@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session
   before_action :authenticate_employee, except: [:home]
+  helper_method :current_order
   #before_action :set_employee#, only: [:show, :edit, :update, :destroy]
 
   include SessionsHelper
@@ -47,6 +48,15 @@ def save_login_state
     return true
   end
 end
+
+  def current_order      
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else 
+      #Order.all.first
+      Order.new
+    end
+  end
 
   private
 
